@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal and Administrative Considerations Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="expansionForm">
+        <h2>Legal and Administrative Considerations</h2>
+        <input type="hidden" name="pageNumber" value="12">
+
+
+        <!-- Question 55 -->
+        <div class="question">
+            <label for="businessRegistered">Is your business registered as a legal entity (e.g., LLC, corporation)?</label><br>
+            <input type="radio" id="yesRegistered" name="businessRegistered" value="yes" required> Yes
+            <input type="radio" id="noRegistered" name="businessRegistered" value="no"> No
+        </div>
+
+        <!-- Question 56 -->
+        <div class="question" id="entityTypeContainer" style="display: none;">
+            <label for="entityType">If yes, what type of entity is it?</label><br>
+            <input type="text" id="entityType" name="entityType" placeholder="e.g., LLC, Corporation">
+        </div>
+
+        <!-- Question 57 -->
+        <div class="question">
+            <label for="businessInsurance">Do you have business insurance?</label><br>
+            <input type="radio" id="yesInsurance" name="businessInsurance" value="yes" required> Yes
+            <input type="radio" id="noInsurance" name="businessInsurance" value="no"> No
+        </div>
+
+        <!-- Question 58 -->
+        <div class="question" id="insuranceTypeContainer" style="display: none;">
+            <label for="insuranceType">If yes, what type of insurance do you have?</label><br>
+            <input type="checkbox" id="generalLiability" name="insuranceType" value="General liability"> General liability<br>
+            <input type="checkbox" id="propertyInsurance" name="insuranceType" value="Property insurance"> Property insurance<br>
+            <input type="checkbox" id="workersComp" name="insuranceType" value="Workers’ compensation"> Workers’ compensation<br>
+            <label for="otherInsurance">Other:</label><br>
+            <input type="text" id="otherInsurance" name="otherInsurance" placeholder="Specify other insurance">
+        </div>
+
+        <!-- Question 59 -->
+        <div class="question">
+            <label for="studentContract">Do you have a written contract or agreement for your students?</label><br>
+            <input type="radio" id="yesContract" name="studentContract" value="yes" required> Yes
+            <input type="radio" id="noContract" name="studentContract" value="no"> No
+        </div>
+
+        <!-- Question 60 -->
+        <div class="question" id="contractCoverageContainer" style="display: none;">
+            <label for="contractCoverage">If yes, what does it cover? (Select all that apply)</label><br>
+            <input type="checkbox" id="membershipTerms" name="contractCoverage" value="Membership terms"> Membership terms<br>
+            <input type="checkbox" id="liabilityWaiver" name="contractCoverage" value="Liability waiver"> Liability waiver<br>
+            <input type="checkbox" id="attendanceBehavior" name="contractCoverage" value="Class attendance and behavior"> Class attendance and behavior<br>
+            <input type="checkbox" id="refundsCancellations" name="contractCoverage" value="Refunds or cancellations"> Refunds or cancellations<br>
+            <label for="otherContractCoverage">Other:</label><br>
+            <input type="text" id="otherContractCoverage" name="otherContractCoverage" placeholder="Specify other coverage">
+        </div>
+
+        <!-- Question 61 -->
+        <div class="question">
+            <label for="bookingSystem">Do you have a system in place for booking classes and managing schedules?</label><br>
+            <input type="radio" id="yesBooking" name="bookingSystem" value="yes" required> Yes
+            <input type="radio" id="noBooking" name="bookingSystem" value="no"> No
+        </div>
+
+        <!-- Question 62 -->
+        <div class="question" id="bookingSystemTypeContainer" style="display: none;">
+            <label for="bookingSystemType">If yes, which system do you use? (e.g., booking software, calendar, etc.):</label><br>
+            <input type="text" id="bookingSystemType" name="bookingSystemType" placeholder="Specify booking system">
+        </div>
+
+        <!-- Question 63 -->
+        <div class="question">
+            <label for="trackExpenses">Do you track your business expenses and revenue regularly?</label><br>
+            <input type="radio" id="yesExpenses" name="trackExpenses" value="yes" required> Yes
+            <input type="radio" id="noExpenses" name="trackExpenses" value="no"> No
+        </div>
+
+        <!-- Question 64 -->
+        <div class="question" id="trackingSoftwareContainer" style="display: none;">
+            <label for="trackingSoftware">If yes, what software or system do you use?</label><br>
+            <input type="text" id="trackingSoftware" name="trackingSoftware" placeholder="Specify tracking software">
+        </div>
+
+        <!-- Question 65 -->
+        <div class="question">
+            <label for="accountant">Do you currently have an accountant or financial advisor to assist with business finances?</label><br>
+            <input type="radio" id="yesAccountant" name="accountant" value="yes" required> Yes
+            <input type="radio" id="noAccountant" name="accountant" value="no"> No
+        </div>
+
+        <!-- Navigation Button -->
+        <div class="question">
+            <button type="button" onclick="goToNextPage()">Go to Page 15</button>
+        </div>
+    </form>
+
+    <script>
+        function goToNextPage() {
+            const form = document.getElementById('expansionForm');
+            if (form.checkValidity()) {
+                const formData = new FormData(form);
+                
+                // Send data to the server using fetch
+                fetch('/submit-form', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to the next page (Page 3 in this case)
+                        window.location.href = '/page13.html';
+                    } else {
+                        alert('Error saving data');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                alert('Please complete all required fields before continuing.');
+            }
+        }
+    </script>
+    
+</body>
+</html>

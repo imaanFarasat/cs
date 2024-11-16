@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martial Arts Business Expansion Form - Page 7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>8. Challenges and Obstacles</h2>
+        
+        <form id="expansionForm">
+            <input type="hidden" name="pageNumber" value="7">
+
+            <!-- Question 33 -->
+            <div class="question">
+                <label for="biggestChallenges">33. What have been the biggest challenges in running your martial arts business so far?</label>
+                <select id="biggestChallenges" name="biggestChallenges" required>
+                    <option value="">Select an option</option>
+                    <option value="qualifiedInstructors">Finding qualified instructors</option>
+                    <option value="studentEnrollment">Increasing student enrollment</option>
+                    <option value="facilityCosts">Managing facility costs and overhead</option>
+                    <option value="competingBusinesses">Competing with other businesses</option>
+                    <option value="marketingVisibility">Marketing and brand visibility</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" id="biggestChallengesOther" name="biggestChallengesOther" placeholder="Please specify" style="display:none;">
+            </div>
+            
+            <!-- Question 34 -->
+            <div class="question">
+                <label for="biggestObstacle">34. What do you think is your biggest obstacle to expanding your business?</label>
+                <select id="biggestObstacle" name="biggestObstacle" required>
+                    <option value="">Select an option</option>
+                    <option value="financialResources">Financial resources</option>
+                    <option value="limitedStaff">Limited staff or instructors</option>
+                    <option value="competition">Competition</option>
+                    <option value="facilitySpace">Facility space</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" id="biggestObstacleOther" name="biggestObstacleOther" placeholder="Please specify" style="display:none;">
+            </div>
+            
+            <!-- Question 35 -->
+            <div class="question">
+                <label for="supportResources">35. What kind of support or resources do you need to help overcome these challenges?</label>
+                <select id="supportResources" name="supportResources" required>
+                    <option value="">Select an option</option>
+                    <option value="businessCoaching">Business coaching or mentorship</option>
+                    <option value="fundingInvestment">Funding or investment</option>
+                    <option value="hiringHelp">Hiring help or additional instructors</option>
+                    <option value="marketingSupport">Marketing support</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="text" id="supportResourcesOther" name="supportResourcesOther" placeholder="Please specify" style="display:none;">
+            </div>
+
+            <button type="button" onclick="goToNextPage()">Next</button>
+        </form>
+    </div>
+
+    <script>
+        function goToNextPage() {
+            const form = document.getElementById('expansionForm');
+            if (form.checkValidity()) {
+                const formData = new FormData(form);
+                
+                // Send data to the server using fetch
+                fetch('/submit-form', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to the next page (Page 3 in this case)
+                        window.location.href = '/page9.html';
+                    } else {
+                        alert('Error saving data');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                alert('Please complete all required fields before continuing.');
+            }
+        }
+    </script>
+    
+
+</body>
+</html>

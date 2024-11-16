@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #c1e7ff);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #ff6347;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            animation: fadeIn 2s ease-out;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .emoji {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Mobile-friendly styles */
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .emoji {
+                font-size: 2rem;
+            }
+        }
+
+        .thank-you-message {
+            font-size: 1.4rem;
+            color: #4b8e8d;
+            max-width: 80%;
+            margin: 30px auto;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thank You for Your Submission! 🙏</h2>
+        <div class="emoji">😊🤝✨</div>
+        <p>Your responses have been successfully submitted. We will review your answers and get back to you shortly. 💬</p>
+        <div class="thank-you-message">
+            <p>Thank you! This isn’t just another form. We’ll carefully review your responses to help you achieve your goals as investors. We’re always wishing you the best, and just as you believe in yourself, we believe in you too! 🌟</p>
+        </div>
+    </div>
+</body>
+</html>

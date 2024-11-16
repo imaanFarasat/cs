@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martial Arts Business Expansion Form - Page 9</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>9. Branding and Online Presence</h2>
+        
+        <form id="expansionForm">
+            <input type="hidden" name="pageNumber" value="9">
+
+            <!-- Question 39 -->
+            <div class="question">
+                <label for="hasWebsite">39. Do you currently have a website for your martial arts business?</label>
+                <select id="hasWebsite" name="hasWebsite" required>
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            
+            <!-- Question 40 -->
+            <div class="question">
+                <label for="hasLogo">40. Do you have a logo for your business?</label>
+                <select id="hasLogo" name="hasLogo" required>
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            
+            <!-- Question 41 -->
+            <div class="question">
+                <label for="hasBrandingGuidelines">41. Do you have a visual identity or branding guidelines (e.g., color scheme, fonts, imagery)?</label>
+                <select id="hasBrandingGuidelines" name="hasBrandingGuidelines" required>
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            
+            <!-- Question 42 -->
+            <div class="question">
+                <label for="personalBranding">42. Is your martial arts business built around personal branding?</label>
+                <select id="personalBranding" name="personalBranding" required>
+                    <option value="">Select an option</option>
+                    <option value="centeredAroundMe">Yes, it’s centered around my personal identity as a trainer</option>
+                    <option value="separateBrand">No, the business has its own brand separate from me</option>
+                    <option value="deciding">I’m in the process of deciding</option>
+                </select>
+            </div>
+            
+            <!-- Question 43 -->
+            <div class="question">
+                <label for="useSocialMedia">43. Do you currently use social media to promote your business?</label>
+                <select id="useSocialMedia" name="useSocialMedia" required>
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            
+            <!-- Question 44 -->
+            <div class="question">
+                <label for="socialMediaProfileType">44. Do you have a business profile on social media, or is it personal?</label>
+                <select id="socialMediaProfileType" name="socialMediaProfileType" required>
+                    <option value="">Select an option</option>
+                    <option value="businessProfile">Business profile</option>
+                    <option value="personalProfileUsedForBusiness">Personal profile used for business</option>
+                    <option value="noSocialMedia">I do not use social media for my business</option>
+                </select>
+            </div>
+
+            <!-- Question 45 -->
+            <div class="question">
+                <label for="socialMediaUpdateFrequency">45. How often do you update your social media with new content (e.g., classes, promotions, events)?</label>
+                <select id="socialMediaUpdateFrequency" name="socialMediaUpdateFrequency" required>
+                    <option value="">Select an option</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="rarely">Rarely</option>
+                    <option value="never">Never</option>
+                </select>
+            </div>
+
+            <!-- Question 46 -->
+            <div class="question">
+                <label for="paidAdsExperience">46. Have you ever run paid ads or sponsored posts for your business on social media or other platforms?</label>
+                <select id="paidAdsExperience" name="paidAdsExperience" required>
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <!-- Question 47 -->
+            <div class="question">
+                <label for="influencerPartnerships">47. Do you currently have any partnerships with influencers or other businesses for cross-promotion?</label>
+                <select id="influencerPartnerships" name="influencerPartnerships" required>
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <button type="button" onclick="goToNextPage()">Next</button>
+        </form>
+    </div>
+
+    <script>
+        function goToNextPage() {
+            const form = document.getElementById('expansionForm');
+            if (form.checkValidity()) {
+                const formData = new FormData(form);
+                
+                // Send data to the server using fetch
+                fetch('/submit-form', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to the next page (Page 3 in this case)
+                        window.location.href = '/page10.html';
+                    } else {
+                        alert('Error saving data');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                alert('Please complete all required fields before continuing.');
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Business Questionnaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <form id="expansionForm">
+        <!-- Section 16: Products and Additional Offerings -->
+        <h2 class="section-heading">16. Products and Additional Offerings</h2>
+        <input type="hidden" name="pageNumber" value="13">
+
+        <div class="question">
+            <label for="productsForSale">Besides training, do you have any products or merchandise for sale?</label><br>
+            <input type="radio" id="yesProducts" name="productsForSale" value="yes"> Yes
+            <input type="radio" id="noProducts" name="productsForSale" value="no"> No
+        </div>
+
+        <div class="question">
+            <label for="productsOffered">If yes, what products do you offer? (Select all that apply)</label><br>
+            <input type="checkbox" id="martialArtsEquipment" name="productsOffered" value="Martial arts equipment"> Martial arts equipment (e.g., gloves, pads, gis)<br>
+            <input type="checkbox" id="apparel" name="productsOffered" value="Apparel"> Apparel (e.g., T-shirts, hoodies)<br>
+            <input type="checkbox" id="supplements" name="productsOffered" value="Supplements"> Supplements or nutrition products<br>
+            <input type="checkbox" id="booksTrainingMaterials" name="productsOffered" value="Books and training materials"> Books or training materials<br>
+            <label for="otherProduct">Other:</label><br>
+            <input type="text" id="otherProduct" name="otherProduct">
+        </div>
+
+        <!-- Add more sections as required -->
+
+        <div class="question">
+            <button type="button" id="submitButton" onclick="goToNextPage()">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function goToNextPage() {
+        const form = document.getElementById('expansionForm');
+        if (form.checkValidity()) {
+            const formData = new FormData(form);
+            
+            // Send data to the server using fetch
+            fetch('/submit-form', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Redirect to the next page (Page 3 in this case)
+                    window.location.href = '/thankYouPage.html';  // You can change this to your actual thank you page
+                } else {
+                    alert('Error saving data');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting your form. Please try again.');
+            });
+        } else {
+            alert('Please complete all required fields before continuing.');
+        }
+    }
+</script>
+
+</body>
+</html>

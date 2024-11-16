@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital and Customer Experience Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form id="expansionForm">
+            <input type="hidden" name="pageNumber" value="10">
+
+            <h2>Digital and Online Training</h2>
+
+            <!-- Question 48 -->
+            <div class="question">
+                <label for="offerTraining">Do you currently offer any online training programs or virtual classes?</label><br>
+                <input type="radio" id="yesTraining" name="offerTraining" value="yes"> Yes
+                <input type="radio" id="noTraining" name="offerTraining" value="no"> No
+            </div>
+
+            <!-- Question 49 -->
+            <div class="question">
+                <label for="trainingPlatform">If yes, what platforms do you use to deliver online training (e.g., Zoom, YouTube, a custom website, etc.)?</label><br>
+                <input type="text" id="trainingPlatform" name="trainingPlatform">
+            </div>
+
+            <!-- Question 50 -->
+            <div class="question">
+                <label for="onlinePrograms">What types of online programs do you offer?</label><br>
+                <input type="checkbox" id="liveClasses" name="onlinePrograms" value="Live online classes"> Live online classes<br>
+                <input type="checkbox" id="preRecordedLessons" name="onlinePrograms" value="Pre-recorded lessons"> Pre-recorded lessons<br>
+                <input type="checkbox" id="membershipPortals" name="onlinePrograms" value="Membership portals with exclusive content"> Membership portals with exclusive content<br>
+                <input type="checkbox" id="virtualSeminars" name="onlinePrograms" value="Virtual seminars or workshops"> Virtual seminars or workshops<br>
+                <label for="otherOnlineProgram">Other:</label><br>
+                <input type="text" id="otherOnlineProgram" name="otherOnlineProgram">
+            </div>
+
+            <!-- Question 51 -->
+            <div class="question">
+                <label for="expandOnlineOfferings">Do you plan to increase or expand your online offerings in the future?</label><br>
+                <input type="radio" id="yesExpand" name="expandOnlineOfferings" value="yes"> Yes
+                <input type="radio" id="noExpand" name="expandOnlineOfferings" value="no"> No
+            </div>
+
+            <!-- Question 52 -->
+            <div class="question">
+                <label for="expansionPlans">If yes, in what way? (Select all that apply)</label><br>
+                <input type="checkbox" id="moreLiveClasses" name="expansionPlans" value="More live virtual classes"> More live virtual classes<br>
+                <input type="checkbox" id="preRecordedCourses" name="expansionPlans" value="Pre-recorded courses and tutorials"> Pre-recorded courses and tutorials<br>
+                <input type="checkbox" id="membershipSite" name="expansionPlans" value="Membership site with exclusive content"> Membership site with exclusive content<br>
+                <label for="otherExpansion">Other:</label><br>
+                <input type="text" id="otherExpansion" name="otherExpansion">
+            </div>
+
+            <h2>Customer Experience and Feedback</h2>
+
+            <!-- Question 53 -->
+            <div class="question">
+                <label for="collectFeedback">How do you currently collect feedback from your students?</label><br>
+                <input type="checkbox" id="surveys" name="collectFeedback" value="Surveys or questionnaires"> Surveys or questionnaires<br>
+                <input type="checkbox" id="verbalFeedback" name="collectFeedback" value="Verbal feedback during classes"> Verbal feedback during classes<br>
+                <input type="checkbox" id="onlineReviews" name="collectFeedback" value="Online reviews"> Online reviews<br>
+                <label for="otherFeedback">Other:</label><br>
+                <input type="text" id="otherFeedback" name="otherFeedback">
+            </div>
+
+            <!-- Question 54 -->
+            <div class="question">
+                <label for="valueInClasses">What do your students say they value the most about your classes?</label><br>
+                <input type="checkbox" id="expertise" name="valueInClasses" value="Instructor expertise"> Instructor expertise<br>
+                <input type="checkbox" id="communitySupport" name="valueInClasses" value="Community and support"> Community and support<br>
+                <input type="checkbox" id="classStructure" name="valueInClasses" value="Class structure and curriculum"> Class structure and curriculum<br>
+                <input type="checkbox" id="convenientSchedules" name="valueInClasses" value="Convenient class schedules"> Convenient class schedules<br>
+                <input type="checkbox" id="affordablePricing" name="valueInClasses" value="Affordable pricing"> Affordable pricing<br>
+                <label for="otherValue">Other:</label><br>
+                <input type="text" id="otherValue" name="otherValue">
+            </div>
+
+            <!-- Question 55 -->
+            <div class="question">
+                <label for="improvementsNeeded">What do you think your students would like to see improved or added to your current offerings?</label><br>
+                <input type="checkbox" id="moreVariety" name="improvementsNeeded" value="More variety in classes or styles"> More variety in classes or styles<br>
+                <input type="checkbox" id="flexibleSchedules" name="improvementsNeeded" value="More flexible schedules"> More flexible schedules<br>
+                <input type="checkbox" id="advancedClasses" name="improvementsNeeded" value="Advanced or specialized classes"> Advanced or specialized classes<br>
+                <input type="checkbox" id="betterOnlineOptions" name="improvementsNeeded" value="Better online learning options"> Better online learning options<br>
+                <input type="checkbox" id="communityEvents" name="improvementsNeeded" value="More community events or activities"> More community events or activities<br>
+                <label for="otherImprovements">Other:</label><br>
+                <input type="text" id="otherImprovements" name="otherImprovements">
+            </div>
+
+            <!-- Question 56 -->
+            <div class="question">
+                <label for="retentionStrategies">How do you handle student retention and loyalty?</label><br>
+                <input type="checkbox" id="discounts" name="retentionStrategies" value="Discounts for long-term members"> Discounts for long-term members<br>
+                <input type="checkbox" id="referralPrograms" name="retentionStrategies" value="Referral programs"> Referral programs<br>
+                <input type="checkbox" id="personalizedTraining" name="retentionStrategies" value="Personalized training programs"> Personalized training programs<br>
+                <input type="checkbox" id="specialEvents" name="retentionStrategies" value="Special events for students"> Special events for students<br>
+                <label for="otherRetention">Other:</label><br>
+                <input type="text" id="otherRetention" name="otherRetention">
+            </div>
+
+            <!-- Next Page Button -->
+            <div class="question">
+                <button type="button" onclick="goToNextPage()">Next Page</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function goToNextPage() {
+            const form = document.getElementById('expansionForm');
+            if (form.checkValidity()) {
+                const formData = new FormData(form);
+                
+                // Send data to the server using fetch
+                fetch('/submit-form', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to the next page (Page 3 in this case)
+                        window.location.href = '/page11.html';
+                    } else {
+                        alert('Error saving data');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                alert('Please complete all required fields before continuing.');
+            }
+        }
+    </script>
+    
+</body>
+</html>

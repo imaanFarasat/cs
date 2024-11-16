@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martial Arts Business Expansion Form</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <form id="expansionForm">
+        <input type="hidden" name="pageNumber" value="5">
+
+        <!-- Question 19 -->
+        <div class="question">
+            <label>19. What equipment or facilities do you currently have in your martial arts school?</label><br>
+            <label><input type="checkbox" name="currentEquipment" value="Mats or rings"> Mats or rings</label><br>
+            <label><input type="checkbox" name="currentEquipment" value="Weight training equipment"> Weight training equipment</label><br>
+            <label><input type="checkbox" name="currentEquipment" value="Punching bags or kick bags"> Punching bags or kick bags</label><br>
+            <label><input type="checkbox" name="currentEquipment" value="Changing rooms and showers"> Changing rooms and showers</label><br>
+            <label><input type="checkbox" name="currentEquipment" value="Office space"> Office space</label><br>
+            <label><input type="checkbox" name="currentEquipment" value="Other"> Other: <input type="text" name="otherCurrentEquipment"></label>
+        </div>
+
+        <!-- Question 20 -->
+        <div class="question">
+            <label>20. What additional equipment or facilities would you need for expansion?</label><br>
+            <label><input type="checkbox" name="additionalEquipment" value="More training mats or rings"> More training mats or rings</label><br>
+            <label><input type="checkbox" name="additionalEquipment" value="Weight training equipment"> Weight training equipment</label><br>
+            <label><input type="checkbox" name="additionalEquipment" value="Changing rooms or showers"> Changing rooms or showers</label><br>
+            <label><input type="checkbox" name="additionalEquipment" value="Office space for administration"> Office space for administration</label><br>
+            <label><input type="checkbox" name="additionalEquipment" value="Other"> Other: <input type="text" name="otherAdditionalEquipment"></label>
+        </div>
+
+        <!-- Question 21 -->
+        <div class="question">
+            <label>21. What are your plans for the physical layout of the new or expanded facility?</label><br>
+            <label><input type="checkbox" name="layoutPlans" value="Larger training area"> Larger training area</label><br>
+            <label><input type="checkbox" name="layoutPlans" value="Separate rooms for different activities"> Separate rooms for different activities</label><br>
+            <label><input type="checkbox" name="layoutPlans" value="Reception area and waiting rooms"> Reception area and waiting rooms</label><br>
+            <label><input type="checkbox" name="layoutPlans" value="Lounge or relaxation area for students"> Lounge or relaxation area for students</label><br>
+            <label><input type="checkbox" name="layoutPlans" value="Other"> Other: <input type="text" name="otherLayoutPlans"></label>
+        </div>
+
+        <!-- Question 22 -->
+        <div class="question">
+            <label>22. Do you plan to add any unique features to your gym (e.g., a juice bar, retail store, or lounge area)?</label><br>
+            <label><input type="radio" name="uniqueFeatures" value="Yes" required> Yes</label><br>
+            <label><input type="radio" name="uniqueFeatures" value="No"> No</label><br>
+            <label>If yes, please describe: <input type="text" name="uniqueFeatureDescription"></label>
+        </div>
+
+        <!-- Navigation Button -->
+        <button type="button" onclick="goToNextPage()">Next</button>
+    </form>
+</div>
+
+<script>
+    function goToNextPage() {
+        const form = document.getElementById('expansionForm');
+        if (form.checkValidity()) {
+            const formData = new FormData(form);
+            
+            // Send data to the server using fetch
+            fetch('/submit-form', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Redirect to the next page (Page 3 in this case)
+                    window.location.href = 'public/page6.html';
+                } else {
+                    alert('Error saving data');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        } else {
+            alert('Please complete all required fields before continuing.');
+        }
+    }
+</script>
+
+</body>
+</html>
