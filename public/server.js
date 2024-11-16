@@ -10,14 +10,20 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://instagram:instagram@cluster0.oy88e.mongodb.net/martial?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => {
-    console.log('MongoDB Connected');
-}).catch(err => {
-    console.error('MongoDB connection error:', err);
-});
+mongoose
+    .connect(
+        'mongodb+srv://instagram:instagram@cluster0.oy88e.mongodb.net/martial?retryWrites=true&w=majority',
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        }
+    )
+    .then(() => {
+        console.log('MongoDB Connected');
+    })
+    .catch((err) => {
+        console.error('MongoDB connection error:', err);
+    });
 
 // Define the schema for storing form data
 const businessSchema = new mongoose.Schema({
@@ -33,10 +39,8 @@ const Business = mongoose.model('Business', businessSchema);
 
 // Handle form submission
 app.post('/api/submit-form', (req, res) => {
-    // Debugging output to log received form data
     console.log('Form Data Received:', req.body);
-    
-    // Create a new business document with the received data
+
     const { businessName, studioLocation, operationDuration, ownership, squareFootage } = req.body;
 
     const newBusiness = new Business({
@@ -47,8 +51,8 @@ app.post('/api/submit-form', (req, res) => {
         squareFootage,
     });
 
-    // Save to MongoDB
-    newBusiness.save()
+    newBusiness
+        .save()
         .then(() => {
             res.json({ success: true, message: 'Data saved successfully' });
         })
@@ -58,11 +62,5 @@ app.post('/api/submit-form', (req, res) => {
         });
 });
 
-// Serve static files (e.g., HTML, CSS, JS)
-app.use(express.static('public'));
-
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// Export as Vercel serverless function
+module.exports = app;
